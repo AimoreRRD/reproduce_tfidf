@@ -29,7 +29,7 @@ from pathlib import Path
 
 # %% pycharm={"name": "#%%\n"} tags=[]
 root_path = Path('').cwd()
-single_data_path = root_path / '../data/single_client_sample_data.pkl'
+single_data_path = root_path / 'data/single_client_sample_data.pkl'
 single_client_data = pd.read_pickle(single_data_path)
 print(f"Data size: {len(single_client_data)}")
 single_client_data.head()
@@ -151,7 +151,7 @@ host_name = socket.gethostname()
 
 print(host_name)
 
-save_path = root_path / f'../data/data_transformed_dense-{host_name}.pkl'
+save_path = root_path / f'data/data_transformed_dense-{host_name}.pkl'
 
 print(f'Saved data_transformed_dense at: {save_path}')
 with open(save_path, 'wb') as fs:
