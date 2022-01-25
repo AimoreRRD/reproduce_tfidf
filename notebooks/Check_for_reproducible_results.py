@@ -20,6 +20,7 @@ from sklearn.compose import ColumnTransformer
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.preprocessing import MinMaxScaler
 from scipy.sparse import csr_matrix
+import pickle as pkl
 
 # %% [markdown]
 # # Load Data
@@ -138,6 +139,14 @@ data_transformed_dense = data_transformed.todense()
 
 # %% tags=[]
 data_transformed_dense
+
+# %% [markdown]
+# ## Save transformed data for comparison
+
+# %% tags=[]
+data_transformed_dense_path = '../data/data_transformed_dense.pkl'
+with open(data_transformed_dense_path, 'wb') as fs:
+    pkl.dump(data_transformed_dense, fs)
 
 # %% [markdown]
 # # Classifiers
