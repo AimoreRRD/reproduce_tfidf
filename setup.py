@@ -18,5 +18,7 @@ setup(
         "scipy==1.7.1",
         "scikit-learn==1.0",
         "numpy==1.21.2",
+        "ipykernel==6.7.0",
+        "microcosm>=2.4.1",
     ],
 )
