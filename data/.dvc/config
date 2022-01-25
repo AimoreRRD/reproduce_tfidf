@@ -1,0 +1,4 @@
+[core]
+    remote = reproduce_tfidf
+['remote "reproduce_tfidf"']
+    url = s3://globality-dvc/reproduce_tfidf/
