@@ -20,5 +20,6 @@ setup(
         "numpy==1.21.2",
         "ipykernel==6.7.0",
         "microcosm>=2.4.1",
+        "socket",
     ],
 )

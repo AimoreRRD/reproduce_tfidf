@@ -21,13 +21,14 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.preprocessing import MinMaxScaler
 from scipy.sparse import csr_matrix
 import pickle as pkl
+import socket
 
 # %% [markdown]
 # # Load Data
 
 # %% tags=[]
 single_data_path = '../data/single_client_sample_data.pkl'
-single_client_data = pd.read_pickle(data_path)
+single_client_data = pd.read_pickle(single_data_path)
 
 # multi_data_path = '../data/single_client_sample_data.pkl'
 # multi_client_data = pd.read_pickle(data_path)
@@ -129,10 +130,10 @@ f = Featurizer()
 # ## Train featurizer
 
 # %% tags=[]
-f.fit(data)
+f.fit(single_client_data)
 
 # %% tags=[]
-data_transformed = f.transform(data)
+data_transformed = f.transform(single_client_data)
 
 # %%
 data_transformed_dense = data_transformed.todense()
@@ -144,9 +145,16 @@ data_transformed_dense
 # ## Save transformed data for comparison
 
 # %% tags=[]
-data_transformed_dense_path = '../data/data_transformed_dense.pkl'
+host_name = socket.gethostname()
+
+print(host_name)
+
+data_transformed_dense_path = f'../data/data_transformed_dense-{host_name}.pkl'
+print(f'Saved data_transformed_dense at: {data_transformed_dense_path}')
 with open(data_transformed_dense_path, 'wb') as fs:
     pkl.dump(data_transformed_dense, fs)
+
+# %% tags=[]
 
 # %% [markdown]
 # # Classifiers
